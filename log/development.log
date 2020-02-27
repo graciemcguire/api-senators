@@ -14753,3 +14753,140 @@ Completed 200 OK in 37ms (Views: 31.5ms | ActiveRecord: 1.7ms)
   ↳ db/seeds.rb:6
   [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
   ↳ db/seeds.rb:6
+Started GET "/current_user" for ::1 at 2020-02-27 11:50:14 -0500
+Started GET "/senators" for ::1 at 2020-02-27 11:50:14 -0500
+Processing by AuthController#show as */*
+Processing by SenatorsController#index as */*
+  Parameters: {"auth"=>{}}
+  Parameters: {"senator"=>{}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:27
+  ↳ app/controllers/application_controller.rb:27
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:27
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.04ms)
+  ↳ app/controllers/application_controller.rb:27
+Filter chain halted as :authorized rendered or redirected
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.03ms)
+Completed 401 Unauthorized in 4ms (Views: 1.3ms | ActiveRecord: 0.9ms)
+
+
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 4ms (Views: 1.1ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/users" for ::1 at 2020-02-27 11:51:56 -0500
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "user"=>{"email"=>"", "username"=>""}}
+Unpermitted parameter: :user
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:23
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:23
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.04ms)
+Completed 406 Not Acceptable in 934ms (Views: 0.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/current_user" for ::1 at 2020-02-27 11:52:04 -0500
+Started GET "/senators" for ::1 at 2020-02-27 11:52:04 -0500
+Processing by AuthController#show as */*
+Processing by SenatorsController#index as */*
+  Parameters: {"senator"=>{}}
+  Parameters: {"auth"=>{}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:27
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:27
+  ↳ app/controllers/application_controller.rb:27
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+  ↳ app/controllers/application_controller.rb:27
+Filter chain halted as :authorized rendered or redirected
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.03ms)
+Completed 401 Unauthorized in 3ms (Views: 1.5ms | ActiveRecord: 0.4ms)
+
+
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 3ms (Views: 1.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/login" for ::1 at 2020-02-27 11:52:08 -0500
+Processing by AuthController#create as JSON
+  Parameters: {"email"=>"gracie@gracie.com", "password"=>"[FILTERED]", "auth"=>{"email"=>"gracie@gracie.com", "password"=>"[FILTERED]"}}
+Unpermitted parameter: :auth
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "gracie@gracie.com"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5
+Unpermitted parameter: :auth
+[active_model_serializers]   [1m[36mSenator Load (3.2ms)[0m  [1m[34mSELECT "senators".* FROM "senators" INNER JOIN "ratings" ON "senators"."id" = "ratings"."senator_id" WHERE "ratings"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:8
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (4.77ms)
+Completed 202 Accepted in 206ms (Views: 1.8ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/current_user" for ::1 at 2020-02-27 11:52:13 -0500
+Started GET "/senators" for ::1 at 2020-02-27 11:52:13 -0500
+Processing by AuthController#show as */*
+  Parameters: {"auth"=>{}}
+Processing by SenatorsController#index as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Parameters: {"senator"=>{}}
+  ↳ app/controllers/application_controller.rb:27
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:27
+  ↳ app/controllers/application_controller.rb:27
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:27
+  ↳ app/controllers/application_controller.rb:27
+[active_model_serializers]   [1m[36mSenator Load (0.7ms)[0m  [1m[34mSELECT "senators".* FROM "senators" INNER JOIN "ratings" ON "senators"."id" = "ratings"."senator_id" WHERE "ratings"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:15
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (2.62ms)
+Completed 200 OK in 8ms (Views: 4.5ms | ActiveRecord: 1.1ms)
+
+
+  [1m[36mSenator Load (2.5ms)[0m  [1m[34mSELECT "senators".* FROM "senators"[0m
+  ↳ app/controllers/senators_controller.rb:5
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (17.6ms)
+Completed 200 OK in 30ms (Views: 24.4ms | ActiveRecord: 3.1ms)
+
+
+Started POST "/ratings" for ::1 at 2020-02-27 11:52:17 -0500
+Processing by RatingsController#create as */*
+  Parameters: {"senator_id"=>1, "user_rating"=>"joke", "rating"=>{"senator_id"=>1, "user_rating"=>"joke"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:27
+  [1m[36mRating Load (0.4ms)[0m  [1m[34mSELECT  "ratings".* FROM "ratings" WHERE "ratings"."senator_id" = $1 LIMIT $2[0m  [["senator_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/ratings_controller.rb:4
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:27
+Unpermitted parameter: :rating
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/ratings_controller.rb:11
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/ratings_controller.rb:11
+  [1m[36mSenator Load (0.2ms)[0m  [1m[34mSELECT  "senators".* FROM "senators" WHERE "senators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/ratings_controller.rb:11
+  [1m[36mRating Create (0.8ms)[0m  [1m[32mINSERT INTO "ratings" ("senator_id", "user_id", "user_rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["senator_id", 1], ["user_id", 1], ["user_rating", "joke"], ["created_at", "2020-02-27 16:52:17.522858"], ["updated_at", "2020-02-27 16:52:17.522858"]]
+  ↳ app/controllers/ratings_controller.rb:11
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/ratings_controller.rb:11
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:27
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.11ms)
+Completed 201 Created in 9ms (Views: 0.9ms | ActiveRecord: 2.5ms)
+
+
+Started POST "/login" for ::1 at 2020-02-27 11:56:27 -0500
+Processing by AuthController#create as JSON
+  Parameters: {"email"=>"test@test.com", "password"=>"[FILTERED]", "auth"=>{"email"=>"test@test.com", "password"=>"[FILTERED]"}}
+Unpermitted parameter: :auth
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.11ms)
+Completed 401 Unauthorized in 4ms (Views: 0.6ms | ActiveRecord: 0.7ms)
+
+
